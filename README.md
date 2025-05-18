@@ -131,12 +131,16 @@ def ask_question(question):
     * The first 200 characters of the relevant text for verification
 # Architecture using mermaid:
 
-```
-graph LR
-A[PDF] --> B[Text Chunks]
-B --> C[Vector Store]
-D[Question] --> C
-C --> E[Relevant Context]
-E --> F[LLM]
-F --> G[Answer]
+```mermaid
+graph TD
+    A[PDF File] --> B[PDF Loader]
+    B --> C[Text Splitting]
+    C --> D[Vector Embeddings]
+    D --> E[FAISS Vector Store]
+    F[User Question] --> G[Retriever]
+    E --> G
+    G --> H[Relevant Context]
+    H --> I[LLM Prompt]
+    I --> J[GPT-2 LLM]
+    J --> K[Generated Answer]
 ```
