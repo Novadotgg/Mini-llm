@@ -13,8 +13,15 @@ text_splitter = CharacterTextSplitter(
 )
 texts = text_splitter.split_documents(documents)
 ```
-File Upload: Uses Google Colab's files.upload() to let users upload a PDF file
+### 1. PDF Upload and Processing
+- File Upload: Uses Google Colab's files.upload() to let users upload a PDF file
 
-PDF Loading: PyPDFLoader loads the PDF and extracts its content
+- PDF Loading: PyPDFLoader loads the PDF and extracts its content
 
-Text Splitting:
+- Text Splitting:
+
+    * Divides the document into chunks of 1000 characters each
+
+    * Maintains 200-character overlaps between chunks to preserve context
+
+    * Splits at newline characters to keep logical text groupings
