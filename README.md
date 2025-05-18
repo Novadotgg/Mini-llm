@@ -1,4 +1,4 @@
-### This code creates a question-answering system that can extract information from uploaded PDF documents. <br>Let's break it down section by section:
+# This code creates a question-answering system that can extract information from uploaded PDF documents. <br>Let's break it down section by section:
 ```
 uploaded = files.upload()
 pdf_name = list(uploaded.keys())[0]
@@ -129,3 +129,15 @@ def ask_question(question):
     * The generated answer
     * The PDF page number where the answer was found (with +1 adjustment since pages start at 0)
     * The first 200 characters of the relevant text for verification
+# Architecture using mermaid:
+
+```
+```mermaid
+graph LR
+A[PDF] --> B[Text Chunks]
+B --> C[Vector Store]
+D[Question] --> C
+C --> E[Relevant Context]
+E --> F[LLM]
+F --> G[Answer]
+```
