@@ -132,7 +132,6 @@ def ask_question(question):
 # Architecture using mermaid:
 
 ```
-```mermaid
 graph LR
 A[PDF] --> B[Text Chunks]
 B --> C[Vector Store]
